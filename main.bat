@@ -6,14 +6,14 @@ echo ========================================
 echo.
 
 :: Mise à jour de Windows via PSWindowsUpdate
-echo Mise à jour de Windows...
+echo Mise a jour de Windows...
 powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "Install-Module -Name PSWindowsUpdate -Force"
 powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "Get-WindowsUpdate -Install -AcceptAll -AutoReboot"
 
 echo.
 
 :: Mise à jour Windows via UsoClient
-echo Recherche et installation des mises à jour de Windows...
+echo Recherche et installation des mises a jour de Windows...
 UsoClient StartScan
 UsoClient StartDownload
 UsoClient StartInstall
@@ -23,13 +23,13 @@ UsoClient RestartDevice
 echo.
 
 :: Mise à jour des applications via winget
-echo Mise à jour des applications via winget...
+echo Mise a jour des applications via winget...
 winget upgrade --all
 
 echo.
 
 :: Installation et mise à jour des logiciels via Chocolatey
-echo Mise à jour des logiciels via Chocolatey...
+echo Mise a jour des logiciels via Chocolatey...
 :: Vérifie si Chocolatey est installé, sinon l'installe
 powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "if (!(Get-Command choco -ErrorAction SilentlyContinue)) { Set-ExecutionPolicy Bypass -Scope Process; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1')) }"
 choco upgrade all -y
@@ -50,7 +50,7 @@ cleanmgr /sagerun:1
 echo.
 
 :: Défragmentation du disque (facultatif)
-echo Défragmentation du disque...
+echo Defragmentation du disque...
 defrag C: /O
 
 echo.
@@ -58,14 +58,15 @@ echo.
 :: Demande de scan pour les logiciels malveillants
 set /p scan="Voulez-vous scanner pour les logiciels malveillants ? (o/n) : "
 if /i "%scan%"=="o" (
-    echo Démarrage de la vérification des logiciels malveillants...
+    echo Demarrage de la verification des logiciels malveillants...
     "%ProgramFiles%\Windows Defender\MpCmdRun.exe" -Scan -ScanType 2
     echo Veuillez patienter, le scan est en cours...
     timeout /t 5 >nul
 ) else (
-    echo Scan de logiciels malveillants ignoré.
+    echo Scan de logiciels malveillants ignore.
 )
 
+cls
 echo.
 echo ========================================
 echo        Maintenance terminée !
