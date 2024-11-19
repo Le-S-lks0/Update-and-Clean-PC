@@ -28,14 +28,6 @@ winget upgrade --all
 
 echo.
 
-:: Installation et mise à jour des logiciels via Chocolatey
-echo Mise a jour des logiciels via Chocolatey...
-:: Vérifie si Chocolatey est installé, sinon l'installe
-powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "if (!(Get-Command choco -ErrorAction SilentlyContinue)) { Set-ExecutionPolicy Bypass -Scope Process; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1')) }"
-choco upgrade all -y
-
-echo.
-
 :: Suppression des fichiers temporaires
 echo Suppression des fichiers temporaires...
 del /q /s "%temp%\*"
