@@ -45,7 +45,9 @@ echo.
 
 :: Nettoyage du disque via cleanmgr
 echo Nettoyage du disque...
+cleanmgr /sageset:1
 cleanmgr /sagerun:1
+cleanmgr /tuneup:1
 
 echo.
 
