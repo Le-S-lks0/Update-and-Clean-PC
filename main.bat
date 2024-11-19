@@ -78,4 +78,4 @@ echo.
 echo Votre PC va redémarrer...
 timeout /t 5
 
-shutdown /r /t 10 /c "Maintenance terminée"
+shutdown /r /t 5 /c "Maintenance terminée"
